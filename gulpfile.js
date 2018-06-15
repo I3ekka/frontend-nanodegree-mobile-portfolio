@@ -21,9 +21,9 @@ gulp.task('styles', function(){
     gulp.src('css/*.css')
         .pipe(minifyCSS())
         .pipe(gulp.dest('dist/css'));
-    gulp.src('views/css/*.css')
+    gulp.src('css/*.css')
         .pipe(minifyCSS())
-        .pipe(gulp.dest('dist/views/css'));
+        .pipe(gulp.dest('dist/css'));
 });
 
 // Minifies the images and outputs them to dist/img
@@ -35,13 +35,13 @@ gulp.task('imagemin', function(){
             use: [pngquant()]
         }))
         .pipe(gulp.dest('dist/img'));
-    gulp.src('views/img/*')
+    gulp.src('img/*')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest('dist/views/img'));
+        .pipe(gulp.dest('dist/img'));
 });
 
 // Minifies the HTML, minifies inline JS and CSS, outputs it to dist/*.html
@@ -50,7 +50,7 @@ gulp.task('content', function() {
         .pipe(minifyhtml())
         .pipe(minifyInline())
         .pipe(gulp.dest('dist/'));
-    gulp.src('views/*.html')
+    gulp.src('*.html')
         .pipe(minifyhtml())
         .pipe(minifyInline())
         .pipe(gulp.dest('dist/views/'));
