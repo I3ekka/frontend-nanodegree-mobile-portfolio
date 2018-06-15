@@ -11,9 +11,9 @@ gulp.task('scripts', function() {
     gulp.src('js/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
-    gulp.src('views/js/*.js')
+    gulp.src('js/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('dist/views/js'));
+        .pipe(gulp.dest('dist/js'));
 });
 
 // Minifies the css and outputs to dist/css/*.css
